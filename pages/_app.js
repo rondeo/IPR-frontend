@@ -31,12 +31,6 @@ class MyApp extends App {
 }
 
 export default withRedux(createStore,{
-  serializeState: state => {
-    console.log('/// serializeState', state);
-    return state.toJS();
-  },
-  deserializeState: state => {
-    console.log('/// deserializeState', state);
-    return state ? fromJS(state) : state;
-  },
+  serializeState: state => state.toJS(),
+  deserializeState: state => state ? fromJS(state) : state,
 })(withReduxSaga(MyApp))

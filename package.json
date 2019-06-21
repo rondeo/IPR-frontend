@@ -21,6 +21,9 @@
     "redux-saga": "1.0.1"
   },
   "devDependencies": {
+    "npm": "^6.9.0",
+    "prop-types": "^15.7.2",
+    "react-immutable-proptypes": "^2.1.0",
     "redux-devtools-extension": "2.13.2"
   }
 }
