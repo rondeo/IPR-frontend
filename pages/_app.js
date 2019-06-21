@@ -5,6 +5,7 @@ import withRedux from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
 
 import createStore from '../store'
+import { fromJS } from "immutable";
 
 class MyApp extends App {
   static async getInitialProps ({ Component, ctx }) {
@@ -29,4 +30,13 @@ class MyApp extends App {
   }
 }
 
-export default withRedux(createStore)(withReduxSaga(MyApp))
+export default withRedux(createStore,{
+  serializeState: state => {
+    console.log('/// serializeState', state);
+    return state.toJS();
+  },
+  deserializeState: state => {
+    console.log('/// deserializeState', state);
+    return state ? fromJS(state) : state;
+  },
+})(withReduxSaga(MyApp))

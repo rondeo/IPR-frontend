@@ -36,5 +36,6 @@ class Counter extends Component {
   }
 }
 
-const mapStateToProps = ({ count }) => ({ count });
-export default connect(mapStateToProps)(Counter)
+export default connect(state => ({
+  count: state.get('count'),
+}))(Counter)

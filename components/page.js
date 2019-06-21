@@ -33,4 +33,11 @@ function Page ({
   )
 }
 
-export default connect(state => state)(Page)
+export default connect(state =>({
+  error: state.get('error'),
+  lastUpdate: state.get('lastUpdate'),
+  light: state.get('light'),
+  NavigateTo: state.get('NavigateTo'),
+  placeholderData: state.get('placeholderData'),
+  title: state.get('title'),
+}))(Page)

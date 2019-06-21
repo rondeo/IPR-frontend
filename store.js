@@ -12,7 +12,7 @@ const bindMiddleware = middleware => {
   return applyMiddleware(...middleware)
 };
 
-function configureStore (initialState = exampleInitialState) {
+function makeStore (initialState = exampleInitialState) {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
     rootReducer,
@@ -25,4 +25,4 @@ function configureStore (initialState = exampleInitialState) {
   return store
 }
 
-export default configureStore
+export default makeStore
