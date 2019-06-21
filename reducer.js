@@ -21,7 +21,7 @@ function reducer (state = exampleInitialState, action) {
       return state.merge({ count: state.get('count') - 1 });
 
     case actionTypes.RESET:
-      return state.merge({ count: exampleInitialState.count });
+      return state.merge({ count: exampleInitialState.get('count') });
 
     case actionTypes.LOAD_DATA_SUCCESS:
       return state.merge({ placeholderData: action.data });
